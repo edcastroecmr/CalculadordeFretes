@@ -1,0 +1,131 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url(./Screenshot_20240801_020448_WhatsApp.jpg);
+    position: relative;
+    background-position: center;
+  
+}
+.logo{
+    position: absolute;
+    width: 200px;
+    height: 438px;
+    left: 0;
+}
+.logo2{
+    position: absolute;
+    width: 200px;
+    height: 438px;
+    right: 0;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 350px;
+    position: relative;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="text"], input[type="number"] {
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px 0px;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+p, h2 {
+    margin: 10px 0;
+}
+
+#historico {
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+    margin: 0;
+}
+
+#historico li {
+    margin-bottom: 5px;
+}
+
+#total {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .logo, .logo2 {
+        width: 100px;
+        height: auto;
+        top: 0;
+    }
+
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    button {
+        padding: 8px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo, .logo2 {
+        width: 80px;
+    }
+
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    input[type="text"], input[type="number"] {
+        padding: 6px 0px;
+    }
+
+    button {
+        padding: 6px px;
+    }
+}
