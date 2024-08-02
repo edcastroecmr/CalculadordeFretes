@@ -16,7 +16,7 @@
                 <h1>Calculadora de Frete</h1>
                 <h3>Seven Motoboys <i class="fa-sharp-duotone fa-solid fa-horse-head"></i><i class="fa-sharp-duotone fa-solid fa-horse"></i></h3>
             
-                <form id="freteForm">
+                <form id="freteForm" novalidate>
                     <label for="local">Local de Solicitação:</label>
                     <input type="text" id="local" name="local" required placeholder="Ex: Taberna">
                     
@@ -30,7 +30,7 @@
                         <input type="checkbox" id="taxaRetorno"> Taxa de Retorno para corridas acima de 5 km
                     </label>
                     
-                    <button type="button" onclick="calcularFrete()">Calcular Frete</button>
+                    <button type="submit" onclick="calcularFrete()">Calcular Frete</button>
                 </form>
                 <p id="resultado"></p>
                 <h2>Histórico de Cálculos</h2>
