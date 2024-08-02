@@ -54,7 +54,7 @@ body {
     flex: 1;
     border-left: 2px solid #ddd;
     padding-left: 20px;
-    min-width: 300px; /* Define uma largura mínima para garantir que a coluna tenha uma boa aparência */
+    min-width: 300px; 
 }
 
 h1, h2, h3 {
@@ -107,6 +107,30 @@ p, h2 {
     font-size: 18px;
     font-weight: bold;
 }
+/* CSS para os valores totais dos locais */
+#locaisValores li span {
+    font-weight: bold; 
+}
+
+/* CSS para o total geral */
+#totalGeral {
+    font-size: 18px;
+    font-weight: bold; 
+
+}#locaisValores li {
+    margin-bottom: 5px;
+}
+
+#locaisValores li .local {
+    color: #007bff; /* Cor azul para destacar o nome do local, você pode alterar para qualquer cor que desejar */
+    font-weight: bold; /* Torna o nome do local em negrito */
+}
+
+#locaisValores li span {
+    font-weight: bold; /* Mantém o valor em negrito */
+}
+
+
 
 /* Media Queries */
 @media (max-width: 768px) {

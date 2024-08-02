@@ -84,14 +84,11 @@ function atualizarLocaisValores() {
     const locaisValoresUl = document.getElementById('locaisValores');
     locaisValoresUl.innerHTML = ''; // Limpa a lista
 
-    let totalGeral = 0;
-
     for (const [local, valor] of Object.entries(locaisValores)) {
         const li = document.createElement('li');
-        li.textContent = `Local: ${local} - Total: R$ ${valor.toFixed(2)}`;
+        li.innerHTML = `Local: <span class="local">${local}</span> - Total: <span>R$ ${valor.toFixed(2)}</span>`;
         locaisValoresUl.appendChild(li);
-        totalGeral += valor;
     }
-
-    document.getElementById('totalGeral').textContent = `R$ ${totalGeral.toFixed(2)}`;
 }
+
+
