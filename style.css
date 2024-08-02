@@ -47,8 +47,10 @@ input[type="text"], input[type="number"] {
     margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    text-align: center; /* Adiciona esta linha para centralizar o texto dentro do campo */
     padding: 8px 0px;
 }
+
 
 button {
     padding: 10px 15px;

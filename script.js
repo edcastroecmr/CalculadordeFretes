@@ -2,7 +2,10 @@ let totalAcumulado = 0;
 
 function calcularFrete() {
     const local = document.getElementById('local').value;
-    const km = parseFloat(document.getElementById('km').value);
+    const kmInput = document.getElementById('km');
+    const km = parseFloat(kmInput.value);
+    const taxaExtra = document.getElementById('taxaExtra').checked;
+    const taxaRetorno = document.getElementById('taxaRetorno').checked;
     let valorKm;
 
     if (km <= 1.9) valorKm = 7;
@@ -38,12 +41,24 @@ function calcularFrete() {
     else valorKm = "Não disponível para distâncias acima de 30 km";
 
     if (typeof valorKm === 'number') {
+        // Adiciona taxa extra se o checkbox estiver marcado
+        if (taxaExtra) {
+            valorKm += 2;
+        }
+        
+        // Adiciona taxa de retorno se o checkbox estiver marcado e a distância for maior que 5 km
+        if (taxaRetorno && km > 5) {
+            valorKm += km;  // Adiciona R$ 1 por km para cada km acima de 5 km
+        }
+        
         totalAcumulado += valorKm;
-        document.getElementById('resultado').textContent = `Valor do frete: R$ ${valorKm}`;
+        document.getElementById('resultado').textContent = `Valor do frete: R$ ${valorKm.toFixed(2)}`;
         
         // Adiciona ao histórico
         const li = document.createElement('li');
-        li.textContent = `Local: ${local} - Distância: ${km} km - Frete: R$ ${valorKm}`;
+        let taxaExtraTexto = taxaExtra ? ' (com taxa extra de R$ 2)' : '';
+        let taxaRetornoTexto = taxaRetorno && km > 5 ? ` (com taxa de retorno de R$ ${km})` : '';
+        li.textContent = `Local: ${local} - Distância: ${km} km - Frete: R$ ${valorKm.toFixed(2)}${taxaExtraTexto}${taxaRetornoTexto}`;
         document.getElementById('historico').appendChild(li);
         
         // Atualiza o total acumulado
@@ -51,4 +66,7 @@ function calcularFrete() {
     } else {
         document.getElementById('resultado').textContent = valorKm;
     }
+
+    // Limpa o campo de entrada da distância
+    kmInput.value = '';
 }
