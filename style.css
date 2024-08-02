@@ -1,39 +1,63 @@
 body {
     font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     margin: 0;
     background-image: url(./Screenshot_20240801_020448_WhatsApp.jpg);
-    position: relative;
     background-position: center;
-  
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    overflow-x: hidden; /* Garante que não haja rolagem horizontal */
 }
 .logo{
     position: absolute;
-    width: 200px;
-    height: 438px;
+    width: 150px;
+    height: 300px;
     left: 0;
 }
 .logo2{
     position: absolute;
-    width: 200px;
-    height: 438px;
+    width: 150px;
+    height: 300px;
     right: 0;
 }
 
-.container {
-    background-color: #fff;
+.container-principal {
+    width: 90%;
+    max-width: 1200px;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1000px;
+    background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 350px;
+    padding: 20px;
+    box-sizing: border-box;
     position: relative;
 }
 
-h1 {
+.coluna-direita {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.coluna-esquerda {
+    flex: 1;
+    border-left: 2px solid #ddd;
+    padding-left: 20px;
+    min-width: 300px; /* Define uma largura mínima para garantir que a coluna tenha uma boa aparência */
+}
+
+h1, h2, h3 {
     margin-bottom: 20px;
 }
 
@@ -47,10 +71,9 @@ input[type="text"], input[type="number"] {
     margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    text-align: center; /* Adiciona esta linha para centralizar o texto dentro do campo */
     padding: 8px 0px;
+    text-align: center; /* Centraliza o texto dentro do campo */
 }
-
 
 button {
     padding: 10px 15px;
@@ -69,65 +92,40 @@ p, h2 {
     margin: 10px 0;
 }
 
-#historico {
+#historico, #locaisValores {
     list-style-type: none;
     padding: 0;
     text-align: left;
     margin: 0;
 }
 
-#historico li {
+#historico li, #locaisValores li {
     margin-bottom: 5px;
 }
 
-#total {
+#total, #totalGeral {
     font-size: 18px;
     font-weight: bold;
 }
 
-
-
 /* Media Queries */
 @media (max-width: 768px) {
-    .logo, .logo2 {
-        width: 100px;
-        height: auto;
-        top: 0;
-    }
-
     .container {
-        width: 90%;
-        padding: 15px;
+        flex-direction: column;
     }
 
-    h1 {
-        font-size: 24px;
+    .coluna-direita, .coluna-esquerda {
+        margin: 0;
+        border-left: none;
+        border-bottom: 2px solid #ddd;
+        padding: 0;
     }
 
-    button {
-        padding: 8px 12px;
-    }
-}
-
-@media (max-width: 480px) {
-    .logo, .logo2 {
-        width: 80px;
+    .coluna-direita {
+        border-bottom: none;
     }
 
-    .container {
-        width: 95%;
-        padding: 10px;
-    }
-
-    h1 {
-        font-size: 20px;
-    }
-
-    input[type="text"], input[type="number"] {
-        padding: 6px 0px;
-    }
-
-    button {
-        padding: 6px px;
+    .coluna-esquerda {
+        padding-bottom: 20px;
     }
 }

@@ -1,4 +1,5 @@
 let totalAcumulado = 0;
+const locaisValores = {}; // Objeto para armazenar valores por local
 
 function calcularFrete() {
     const local = document.getElementById('local').value;
@@ -52,21 +53,45 @@ function calcularFrete() {
         }
         
         totalAcumulado += valorKm;
-        document.getElementById('resultado').textContent = `Valor do frete: R$ ${valorKm.toFixed(2)}`;
-        
-        // Adiciona ao histórico
+
+        // Atualiza o histórico de cálculos
         const li = document.createElement('li');
         let taxaExtraTexto = taxaExtra ? ' (com taxa extra de R$ 2)' : '';
         let taxaRetornoTexto = taxaRetorno && km > 5 ? ` (com taxa de retorno de R$ ${km})` : '';
         li.textContent = `Local: ${local} - Distância: ${km} km - Frete: R$ ${valorKm.toFixed(2)}${taxaExtraTexto}${taxaRetornoTexto}`;
         document.getElementById('historico').appendChild(li);
+
+        // Atualiza a lista de locais e valores
+        if (!locaisValores[local]) {
+            locaisValores[local] = 0;
+        }
+        locaisValores[local] += valorKm;
         
+        atualizarLocaisValores();
+
         // Atualiza o total acumulado
         document.getElementById('total').textContent = `R$ ${totalAcumulado.toFixed(2)}`;
+        document.getElementById('resultado').textContent = `Valor do frete: R$ ${valorKm.toFixed(2)}`;
     } else {
         document.getElementById('resultado').textContent = valorKm;
     }
 
     // Limpa o campo de entrada da distância
     kmInput.value = '';
+}
+
+function atualizarLocaisValores() {
+    const locaisValoresUl = document.getElementById('locaisValores');
+    locaisValoresUl.innerHTML = ''; // Limpa a lista
+
+    let totalGeral = 0;
+
+    for (const [local, valor] of Object.entries(locaisValores)) {
+        const li = document.createElement('li');
+        li.textContent = `Local: ${local} - Total: R$ ${valor.toFixed(2)}`;
+        locaisValoresUl.appendChild(li);
+        totalGeral += valor;
+    }
+
+    document.getElementById('totalGeral').textContent = `R$ ${totalGeral.toFixed(2)}`;
 }

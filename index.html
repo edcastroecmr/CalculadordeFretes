@@ -8,42 +8,43 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <img class="logo" src="./Screenshot_20240801_020502_WhatsApp.jpg" alt="">
-    <img class="logo2" src="./Screenshot_20240801_020502_WhatsApp.jpg" alt="">
-    <div class="container">
-        <h1>Calculadora de Frete</h1>
-        <h3>Seven Motoboys <i class="fa-sharp-duotone fa-solid fa-horse-head"></i><i class="fa-sharp-duotone fa-solid fa-horse"></i></h3>
-    
-        
-        <form id="freteForm">
-            <label for="local">Local de Solicitação:</label>
-            <input type="text" id="local" name="local" required placeholder="Ex: Taberna">
+    <div class="container-principal">
+        <img class="logo" src="./Screenshot_20240801_020502_WhatsApp.jpg" alt="">
+        <img class="logo2" src="./Screenshot_20240801_020502_WhatsApp.jpg" alt="">
+        <div class="container">
+            <div class="coluna-direita">
+                <h1>Calculadora de Frete</h1>
+                <h3>Seven Motoboys <i class="fa-sharp-duotone fa-solid fa-horse-head"></i><i class="fa-sharp-duotone fa-solid fa-horse"></i></h3>
             
-            <label for="km">Distância (km):</label>
-            <input type="number" id="km" name="km" min="0" step="0.1" required>
-            
-            <label for="taxaExtra">
-                <input type="checkbox" id="taxaExtra" name="taxaExtra">
-                Adicionar taxa extra de R$ 2
-            </label>
-        
-            <label for="taxaRetorno">
-                <input type="checkbox" id="taxaRetorno" name="taxaRetorno">
-                Adicionar taxa de retorno (R$ 1 por km para corridas > 5 km)
-            </label>
-            
-            <button type="button" onclick="calcularFrete()">Calcular Frete</button>
-        </form>
-        
-        <p id="resultado"></p>
-
-        <h2>Histórico de Cálculos</h2>
-        <ul id="historico"></ul>
-
-        <h2>Total Acumulado</h2>
-        <p id="total">R$ 0</p>
+                <form id="freteForm">
+                    <label for="local">Local de Solicitação:</label>
+                    <input type="text" id="local" name="local" required placeholder="Ex: Taberna">
+                    
+                    <label for="km">Distância (km):</label>
+                    <input type="number" id="km" name="km" min="0" step="0.1" required>
+                    
+                    <label>
+                        <input type="checkbox" id="taxaExtra"> Taxa Extra de Chuva R$ 2,00
+                    </label>
+                    <label>
+                        <input type="checkbox" id="taxaRetorno"> Taxa de Retorno para corridas acima de 5 km
+                    </label>
+                    
+                    <button type="button" onclick="calcularFrete()">Calcular Frete</button>
+                </form>
+                <p id="resultado"></p>
+                <h2>Histórico de Cálculos</h2>
+                <ul id="historico"></ul>
+                <h2>Total Acumulado</h2>
+                <p id="total">R$ 0</p>
+            </div>
+            <div class="coluna-esquerda">
+                <h2>Total separado por Estabelecimento</h2>
+                <ul id="locaisValores"></ul>
+                <p id="totalGeral">R$ 0</p>
+            </div>
+        </div>
     </div>
-
     <script src="./script.js"></script>
 </body>
 </html>
